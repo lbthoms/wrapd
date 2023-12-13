@@ -31,3 +31,12 @@ SPOTIFY_CLIENT_SECRET=your secret key goes here
 ```
 python wrapd/main.py
 ```
+
+## Examples
+Here are some examples of how the different pages will display once the application is ran.
+
+### Top Tracks
+(https://i.ibb.co/pRLsk9J/tracks.png)
+
+### Top Artists
+(https://i.ibb.co/xfcjD6M/artists.png)
