@@ -155,6 +155,23 @@ def create_and_add_to_playlist(top_tracks, time_range):
     return playlist
 
 
+@app.route('/create-and-add-playlist/<time_range>')
+def create_and_add_playlist(time_range):
+    if 'spotify_token' not in session:
+        return redirect(url_for('spotify_login'))
+
+    # Get the user's top tracks for the specified time range
+    top_tracks = get_top_tracks(time_range=time_range)
+
+    # Create and add tracks to the playlist
+    playlist = create_and_add_to_playlist(top_tracks, time_range)
+
+    # Get the playlist tracks
+    playlist_tracks = sp.playlist_tracks(playlist['id'])
+
+    return render_template('recommended_playlist.html', playlist_tracks=playlist_tracks)
+
+
 # Route for generating recommended playlist
 @app.route('/recommended-playlist')
 def recommended_playlist():

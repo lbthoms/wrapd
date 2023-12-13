@@ -2,6 +2,16 @@
 
 {% block content %}
   <h2>Recommended Playlist</h2>
+
+  <!-- Display time frame options -->
+  <div>
+    <p>Select time frame:</p>
+    <a href="{{ url_for('recommended_playlist', time_range='long_term') }}">All Time</a>
+    <a href="{{ url_for('recommended_playlist', time_range='medium_term') }}">Last 6 Months</a>
+    <a href="{{ url_for('recommended_playlist', time_range='short_term') }}">Last 4 Weeks</a>
+  </div>
+
+
   {% if playlist_tracks and 'items' in playlist_tracks %}
     <ul>
       {% for track in playlist_tracks['items'] %}
