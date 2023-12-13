@@ -168,7 +168,13 @@ def recommended_playlist():
     # Create and add tracks to the playlist
     playlist = create_and_add_to_playlist(top_tracks, time_range)
 
-    return render_template('recommended_playlist.html', playlist=playlist)
+    # Initialize a new Spotify object
+    sp = spotipy.Spotify(auth=session['spotify_token'])
+
+    # Get the playlist tracks
+    playlist_tracks = sp.playlist_tracks(playlist['id'])
+
+    return render_template('recommended_playlist.html', playlist_tracks=playlist_tracks)
 
 
 if __name__ == '__main__':

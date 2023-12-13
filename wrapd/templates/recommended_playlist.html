@@ -2,13 +2,13 @@
 
 {% block content %}
   <h2>Recommended Playlist</h2>
-  {% if playlist and 'tracks' in playlist %}
+  {% if playlist_tracks and 'items' in playlist_tracks %}
     <ul>
-      {% for track in playlist['tracks'] %}
+      {% for track in playlist_tracks['items'] %}
         <li>
-          {{ track['name'] }} by
-          {% if track['artists'] %}
-            {{ track['artists'][0]['name'] }}  {# Assuming there is at least one artist in the list #}
+          {{ track['track']['name'] }} by
+          {% if track['track']['artists'] %}
+            {{ track['track']['artists'][0]['name'] }}  {# Assuming there is at least one artist in the list #}
           {% else %}
             Unknown Artist
           {% endif %}
