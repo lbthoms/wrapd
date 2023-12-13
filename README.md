@@ -17,6 +17,15 @@ Please run the following:
 pip install -r requirements.txt
 ```
 
+## IMPORTANT! Create .env file with your Spotify API credentials
+```
+# wrapd/.env
+
+SPOTIFY_CLIENT_ID=your client id goes here
+SPOTIFY_CLIENT_SECRET=your secret key goes here
+
+```
+
 ## How To Run
 
 ```
