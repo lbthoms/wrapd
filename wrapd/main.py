@@ -135,7 +135,6 @@ def recommended_playlist():
 
     # Print debug statement to check the value of time_range
     time_range = request.args.get('time_range', 'medium_term')  # Last 6 months
-    print(f"Received time_range: {time_range}")
 
     # Get the user's top tracks for the specified time range
     top_tracks = get_top_tracks(time_range=time_range)
@@ -150,7 +149,6 @@ def recommended_playlist():
     playlist_tracks = sp.playlist_tracks(playlist['id'])
 
     return render_template('recommended_playlist.html', playlist_tracks=playlist_tracks)
-
 
 
 # Make sure the route with the time_range parameter is correct
@@ -198,8 +196,6 @@ def create_and_add_to_playlist(sp, top_tracks, time_range):
     }
 
     term_length = term_length_map.get(time_range, 'All Time')
-
-    print(f"Creating playlist for time range: {time_range}")
 
     # Create a new playlist with a customized name
     playlist_name = f"WRAP'd Playlist Based on {term_length}"
