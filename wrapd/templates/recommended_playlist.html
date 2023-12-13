@@ -11,17 +11,21 @@
     <a href="{{ url_for('recommended_playlist', time_range='short_term') }}">Last 4 Weeks</a>
   </div>
 
-
   {% if playlist_tracks and 'items' in playlist_tracks %}
-    <ul>
+    <ul class="track-list">
       {% for track in playlist_tracks['items'] %}
-        <li>
-          {{ track['track']['name'] }} by
-          {% if track['track']['artists'] %}
-            {{ track['track']['artists'][0]['name'] }}  {# Assuming there is at least one artist in the list #}
-          {% else %}
-            Unknown Artist
-          {% endif %}
+        <li class="track-item">
+          <img src="{{ track['track']['album']['images'][0]['url'] }}" alt="{{ track['track']['name'] }}">
+          <div class="details">
+            <p class="title">{{ track['track']['name'] }}</p>
+            <p class="artist">
+              {% if track['track']['artists'] %}
+                {{ track['track']['artists'][0]['name'] }}
+              {% else %}
+                Unknown Artist
+              {% endif %}
+            </p>
+          </div>
         </li>
       {% endfor %}
     </ul>
