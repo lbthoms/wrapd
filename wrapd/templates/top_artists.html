@@ -1,0 +1,29 @@
+<!-- top_artists.html -->
+
+{% extends 'base.html' %}
+
+{% block title %}Top Artists{% endblock %}
+
+{% block content %}
+  <h2>Top Artists</h2>
+  <div class="time-frame-links">
+    <a href="{{ url_for('top_artists', time_range='long_term') }}" {% if time_range == 'long_term' %}class="active"{% endif %}>All Time</a>
+    <a href="{{ url_for('top_artists', time_range='medium_term') }}" {% if time_range == 'medium_term' %}class="active"{% endif %}>Last 6 Months</a>
+        <a href="{{ url_for('top_artists', time_range='short_term') }}" {% if time_range == 'short_term' %}class="active"{% endif %}>Last 4 Weeks</a>
+  </div>
+
+  <ul class="artist-list">
+    {% for artist in top_artists %}
+      <li class="artist-item">
+        {% if artist['image'] %}
+          <img src="{{ artist['image'] }}" alt="{{ artist['name'] }}">
+        {% else %}
+          <p>No Image Available</p>
+        {% endif %}
+        <div class="artist-details">
+          <p class="artist-name">{{ artist['name'] }}</p>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

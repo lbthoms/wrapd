@@ -1,0 +1,11 @@
+<!-- index.html -->
+
+{% extends 'base.html' %}
+
+
+{% block header %} WRAP'd {% endblock %}
+
+{% block content %}
+    <p>Welcome to My Music App! Log in with Spotify to explore your music.</p>
+    <p><a class="spotify-login-btn" href="{{ url_for('spotify_login') }}">Log in with Spotify</a></p>
+{% endblock %}

@@ -1,0 +1,31 @@
+<!-- base.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}WRAP'd - By Lisa Thoms{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>{% block header %}WRAP'd {% endblock %}</h1>
+    </header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('welcome') }}">Welcome</a></li>
+                <li><a href="{{ url_for('top_tracks') }}">Top Tracks</a></li>
+                <li><a href="{{ url_for('top_artists') }}">Top Artists</a></li>
+                <li><a href="{{ url_for('recommended_playlist') }}">Recommended Playlists</a></li>
+                <li><a href="{{ url_for('spotify_logout') }}">Logout</a></li>
+            </ul>
+        </nav>
+
+    <section>
+        {% block content %}{% endblock %}
+    </section>
+
+        <p>&copy; 2023 WRAP'd - By Lisa Thoms</p>
+</body>
+</html>

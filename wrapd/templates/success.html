@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Success - Your App{% endblock %}
+
+{% block content %}
+    <div class="profile-container">
+        {% if profile_image %}
+            <div>
+                <img src="{{ profile_image }}" alt="Profile Image" class="profile-picture">
+            </div>
+        {% else %}
+            <p>No profile picture available.</p>
+        {% endif %}
+    </div>
+    <h1 style="text-align: center;">Welcome {{ username }} to Wrap'd!</h1>
+
+{% endblock %}

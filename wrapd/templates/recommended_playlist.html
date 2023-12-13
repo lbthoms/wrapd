@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Recommended Playlist</h2>
+  {% if playlist and 'tracks' in playlist %}
+    <ul>
+      {% for track in playlist['tracks'] %}
+        <li>
+          {{ track['name'] }} by
+          {% if track['artists'] %}
+            {{ track['artists'][0]['name'] }}  {# Assuming there is at least one artist in the list #}
+          {% else %}
+            Unknown Artist
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No recommended playlist available.</p>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,29 @@
+<!-- top_tracks.html -->
+
+{% extends 'base.html' %}
+
+{% block title %}Top Tracks{% endblock %}
+
+{% block content %}
+  <h2>Top Tracks</h2>
+
+  <!-- Display time frame options -->
+  <div>
+    <p>Select time frame:</p>
+    <a href="{{ url_for('top_tracks', time_range='long_term') }}">All Time</a>
+    <a href="{{ url_for('top_tracks', time_range='medium_term') }}">Last 6 Months</a>
+    <a href="{{ url_for('top_tracks', time_range='short_term') }}">Last 4 Weeks</a>
+  </div>
+
+  <ul class="track-list">
+    {% for track in top_tracks %}
+      <li class="track-item">
+        <img src="{{ track['album']['images'][0]['url'] }}" alt="{{ track['name'] }}">
+        <div class="details">
+          <p class="title">{{ track['name'] }}</p>
+          <p class="artist">{{ track['artists'][0]['name'] }}</p>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
