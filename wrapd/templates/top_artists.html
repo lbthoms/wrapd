@@ -5,7 +5,12 @@
 {% block title %}Top Artists{% endblock %}
 
 {% block content %}
-  <h2>Top Artists</h2>
+  <h2>
+    Top Artists
+    <img src="{{ url_for('static', filename='question.png') }}" alt="Info" class="info-icon" onclick="openModal()">
+  </h2>
+
+
   <div class="time-frame-links">
     <a href="{{ url_for('top_artists', time_range='long_term') }}" {% if time_range == 'long_term' %}class="active"{% endif %}>All Time</a>
     <a href="{{ url_for('top_artists', time_range='medium_term') }}" {% if time_range == 'medium_term' %}class="active"{% endif %}>Last 6 Months</a>
@@ -26,4 +31,31 @@
       </li>
     {% endfor %}
   </ul>
+
+  <!-- Modal -->
+  <div id="infoModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <p>Explanation about how the page works goes here...</p>
+    </div>
+  </div>
+
+  <style>
+    .info-icon {
+      width: 16px; /* Adjust the size as needed */
+      height: 16px; /* Adjust the size as needed */
+      cursor: pointer;
+    }
+  </style>
+
+  <script>
+    function openModal() {
+      document.getElementById('infoModal').style.display = 'block';
+    }
+
+    function closeModal() {
+      document.getElementById('infoModal').style.display = 'none';
+    }
+  </script>
+
 {% endblock %}

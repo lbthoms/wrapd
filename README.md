@@ -33,10 +33,10 @@ python wrapd/main.py
 ```
 
 ## Examples
-Here are some examples of how the different pages will display once the application is ran.
+Here are some examples of how the different pages will display once the application has successfully run:
 
 ### Top Tracks
 ![Picture of the website display of top tracks.html ](https://i.ibb.co/pRLsk9J/tracks.png)
 
 ### Top Artists
-![Picture of the website display of top artists.html ](https://i.ibb.co/xfcjD6M/artists.png)
+![Picture of the website display of top artists.html ](https://i.ibb.co/Fb99cyV/Screenshot-2023-12-13-at-3-49-32-PM.png)
