@@ -36,7 +36,7 @@ python wrapd/main.py
 Here are some examples of how the different pages will display once the application is ran.
 
 ### Top Tracks
-(https://i.ibb.co/pRLsk9J/tracks.png)
+![Picture of the website display of top tracks.html ](https://i.ibb.co/pRLsk9J/tracks.png)
 
 ### Top Artists
-(https://i.ibb.co/xfcjD6M/artists.png)
+![Picture of the website display of top artists.html ](https://i.ibb.co/xfcjD6M/artists.png)
