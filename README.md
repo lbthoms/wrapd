@@ -6,10 +6,11 @@
 ![Picture of the Spotify logo, but purple to match my app. ](https://icones.pro/wp-content/uploads/2021/04/icone-spotify-violet.png)
 
 ## Description
-This is a Flask-based web application that will allow users to login in to their Spotify profiles
-and view their Top Tracks, Top Artists, and Top Genres from the last 4 weeks, 6 months, and All-Time.
-They will also have the option to generate a playlist with recommended songs based on their last 6 months
-of listening and add that playlist to their Spotify application. 
+This is a Flask-based web application using the spotipy package that will allow users to login in to 
+their Spotify profiles and view their Top Tracks and Top Artists from the last 4 weeks, 6 months, and All-Time.
+
+They will also have the option to generate a playlist with 25 recommended songs based on those three time ranges and 
+add the playlist to their personal Spotify library.
 
  ## Pip Install Instructions
 Please run the following:
