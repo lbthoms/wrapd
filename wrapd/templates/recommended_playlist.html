@@ -1,15 +1,26 @@
 {% extends 'base.html' %}
 
+{% block title %}
+  {% if 'spotify_user' in session %}
+    {{ session['spotify_user']['display_name'] }}'s Recommended Playlist
+  {% else %}
+    Recommended Playlist
+  {% endif %}
+{% endblock %}
+
 {% block content %}
-  <h2>Recommended Playlist</h2>
+  <h2>
+    {{ session['spotify_user']['display_name'] }}'s Recommended Playlist
+    <img src="{{ url_for('static', filename='question.png') }}" alt="Info" class="info-icon" onclick="openModal()">
+  </h2>
 
   <!-- Display time frame options -->
-<div class="time-frame-links">
+  <div class="time-frame-links">
     <p>Select time frame:</p>
-    <a href="{{ url_for('recommended_playlist', time_range='long_term') }}" class="time-range-button" {% if time_range == 'long_term' %}class="active"{% endif %}>All Time</a>
-    <a href="{{ url_for('recommended_playlist', time_range='medium_term') }}" class="time-range-button" {% if time_range == 'medium_term' %}class="active"{% endif %}>Last 6 Months</a>
-    <a href="{{ url_for('recommended_playlist', time_range='short_term') }}" class="time-range-button" {% if time_range == 'short_term' %}class="active"{% endif %}>Last 4 Weeks</a>
-</div>
+    <a href="{{ url_for('recommended_playlist', time_range='long_term') }}" class="time-range-button {% if time_range == 'long_term' %}active{% endif %}">All Time</a>
+    <a href="{{ url_for('recommended_playlist', time_range='medium_term') }}" class="time-range-button {% if time_range == 'medium_term' %}active{% endif %}">Last 6 Months</a>
+    <a href="{{ url_for('recommended_playlist', time_range='short_term') }}" class="time-range-button {% if time_range == 'short_term' %}active{% endif %}">Last 4 Weeks</a>
+  </div>
 
   {% if playlist_tracks and 'items' in playlist_tracks %}
     <ul class="track-list">
@@ -32,4 +43,41 @@
   {% else %}
     <p>No recommended playlist available.</p>
   {% endif %}
+
+  <!-- Modal -->
+  <div id="infoModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2><u>How Recommended Playlist Works</u></h2>
+      <p>Recommended Playlist creates a curated playlist of 25 songs based on your top five tracks from
+        three different time ranges:
+        <br>
+        <br>"short term" or <strong>Last 4 Weeks</strong>
+        <br>"medium term" or <strong>Last 6 Months</strong>
+        <br>"long term" or <strong>All Time</strong>
+      </p>
+      <p>The default playlist uses the Last 6 Months range, but you can generate playlists for each time range
+        using the links provided on the page.</p>
+      <p>This is a great way to explore some new songs or artists you've never heard, while also enjoying
+        some old (or new!) favorites.</p>
+    </div>
+  </div>
+
+  <style>
+    .info-icon {
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+  </style>
+
+  <script>
+    function openModal() {
+      document.getElementById('infoModal').style.display = 'block';
+    }
+
+    function closeModal() {
+      document.getElementById('infoModal').style.display = 'none';
+    }
+  </script>
 {% endblock %}
