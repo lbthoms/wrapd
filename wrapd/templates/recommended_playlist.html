@@ -2,7 +2,7 @@
 
 {% block title %}
   {% if 'spotify_user' in session %}
-    {{ session['spotify_user']['display_name'] }}'s Recommended Playlist
+    {{ session['spotify_user']['display_name'] }}'s Recommended Playlists
   {% else %}
     Recommended Playlist
   {% endif %}
@@ -10,13 +10,14 @@
 
 {% block content %}
   <h2>
-    {{ session['spotify_user']['display_name'] }}'s Recommended Playlist
+    {{ session['spotify_user']['display_name'] }}'s Recommended Playlists
     <img src="{{ url_for('static', filename='question.png') }}" alt="Info" class="info-icon" onclick="openModal()">
   </h2>
 
   <!-- Display time frame options -->
   <div class="time-frame-links">
-    <p>Select time frame:</p>
+    <p>Select time frame:<br>
+    <small>(The playlist will automatically be added to your Spotify Library)</small></p>
     <a href="{{ url_for('recommended_playlist', time_range='long_term') }}" class="time-range-button {% if time_range == 'long_term' %}active{% endif %}">All Time</a>
     <a href="{{ url_for('recommended_playlist', time_range='medium_term') }}" class="time-range-button {% if time_range == 'medium_term' %}active{% endif %}">Last 6 Months</a>
     <a href="{{ url_for('recommended_playlist', time_range='short_term') }}" class="time-range-button {% if time_range == 'short_term' %}active{% endif %}">Last 4 Weeks</a>
