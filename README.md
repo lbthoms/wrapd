@@ -1,7 +1,8 @@
-## WRAP'd
+## WRAP'd 
 
 ### INF601 Advanced Programming with Python
-### Lisa Thoms
+### Final Project
+### by Lisa Thoms
 
 ![Picture of the Spotify logo, but purple to match my app. ](https://icones.pro/wp-content/uploads/2021/04/icone-spotify-violet.png)
 

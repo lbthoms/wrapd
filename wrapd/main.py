@@ -182,7 +182,7 @@ def create_and_add_to_playlist(sp, top_tracks, time_range):
     num_seeds = 5  # Change this to the desired number of seeds
 
     # Get recommendations based on the specified seeds
-    recommendations = sp.recommendations(seed_tracks=track_uris[:num_seeds], limit=50)
+    recommendations = sp.recommendations(seed_tracks=track_uris[:num_seeds], limit=25)
 
     # Extract track URIs from the recommendations
     recommended_track_uris = [track['uri'] for track in recommendations['tracks']]
