@@ -6,6 +6,14 @@
 {% block header %} WRAP'd {% endblock %}
 
 {% block content %}
-    <p>Welcome to My Music App! Log in with Spotify to explore your music.</p>
+    <h2>Welcome to WRAP'd!</h2>
+    <p>With this app, you can view your top tracks and artists on Spotify to get an idea of what your Spotify Wrapped
+    look like at the end of the year!</p>
+    <p>WRAP'd also generates playlists for you to help broaden your musical horizons, generated based off of your most
+    favorite songs!</p>
+    <br>
+    <p>Log in to Spotify below to begin exploring!</p>
+
+
     <p><a class="spotify-login-btn" href="{{ url_for('spotify_login') }}">Log in with Spotify</a></p>
 {% endblock %}

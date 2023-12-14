@@ -2,16 +2,23 @@
 
 {% extends 'base.html' %}
 
-{% block title %}Top Artists{% endblock %}
+{% block title %}
+  {% if 'spotify_user' in session %}
+    {{ session['spotify_user']['display_name'] }}'s Top Artists
+  {% else %}
+    Top Tracks
+  {% endif %}
+{% endblock %}
 
 {% block content %}
   <h2>
-    Top Artists
+    {{ session['spotify_user']['display_name'] }}'s Top Artists
     <img src="{{ url_for('static', filename='question.png') }}" alt="Info" class="info-icon" onclick="openModal()">
   </h2>
 
 
   <div class="time-frame-links">
+    <p>Select time frame:</p>
     <a href="{{ url_for('top_artists', time_range='long_term') }}" {% if time_range == 'long_term' %}class="active"{% endif %}>All Time</a>
     <a href="{{ url_for('top_artists', time_range='medium_term') }}" {% if time_range == 'medium_term' %}class="active"{% endif %}>Last 6 Months</a>
         <a href="{{ url_for('top_artists', time_range='short_term') }}" {% if time_range == 'short_term' %}class="active"{% endif %}>Last 4 Weeks</a>
@@ -36,7 +43,7 @@
   <div id="infoModal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeModal()">&times;</span>
-      <p>Explanation about how the page works goes here...</p>
+      <p></p>
     </div>
   </div>
 

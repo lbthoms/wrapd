@@ -57,23 +57,32 @@ section {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Add additional shared styles here */
-
 .spotify-login-btn {
     display: inline-block;
     padding: 10px 20px;
     font-size: 16px;
     text-align: center;
     text-decoration: none;
-    border-radius: 4px;
-    transition: background-color 0.3s;
+    border-radius: 50px; /* Use a large border-radius for rounded edges */
+    background-color: #1db954; /* Spotify green */
+    color: #ffffff; /* Black text color */
+    border: 2px solid #000; /* Black border */
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .spotify-login-btn:hover {
     background-color: #25a05e; /* Slightly darker green on hover */
+    color: #fff; /* White text color on hover */
 }
 
-.profile-picture,
+.profile-picture {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%; /* Make the image circular */
+    object-fit: cover;
+    margin: 5px;
+}
+
 .item img,
 .track-item img,
 .artist-item img {

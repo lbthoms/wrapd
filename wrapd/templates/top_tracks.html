@@ -2,11 +2,17 @@
 
 {% extends 'base.html' %}
 
-{% block title %}Top Tracks{% endblock %}
+{% block title %}
+  {% if 'spotify_user' in session %}
+    {{ session['spotify_user']['display_name'] }}'s Top Tracks
+  {% else %}
+    Top Tracks
+  {% endif %}
+{% endblock %}
 
 {% block content %}
   <h2>
-    Top Tracks
+    {{ session['spotify_user']['display_name'] }}'s Top Tracks
     <img src="{{ url_for('static', filename='question.png') }}" alt="Info" class="info-icon" onclick="openModal()">
   </h2>
 
