@@ -42,3 +42,6 @@ Here are some examples of how the different pages will display once the applicat
 
 ### Top Artists
 ![Picture of the website display of top artists.html ](https://i.ibb.co/0FdKJQ3/artists.png)
+
+### Recommended Playlists
+![Picture of the website display of recommended_playlist.html](https://i.ibb.co/SPn21L1/playlist.png)
