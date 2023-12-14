@@ -181,3 +181,36 @@ section {
     text-decoration: none;
     cursor: pointer;
 }
+
+/* Scroll bar styles */
+::-webkit-scrollbar {
+  width: 12px; /* Adjust the width as needed */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #3c1c61; /* Dark indigo color for the thumb */
+  border-radius: 6px; /* Rounded corners for the thumb */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #af7ac5; /* Pastel purple color for the track */
+}
+
+/* Button styles for time range links */
+.time-range-button {
+    display: inline-block;
+    padding: 8px 15px; /* Adjust padding for size */
+    font-size: 14px; /* Adjust font size */
+    background-color: #af7ac5; /* Dark indigo on hover */
+    color: white; /* White text on hover */
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50px; /* Makes it more circular */
+    transition: background-color 0.3s, color 0.3s;
+    margin-right: 5px; /* Adjust margin for spacing */
+}
+
+.time-range-button:hover {
+    background-color: #3c1c61; /* Dark indigo on hover */
+    color: white; /* White text on hover */
+}

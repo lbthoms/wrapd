@@ -105,7 +105,7 @@ def get_top_artists(time_range):
         return redirect(url_for('spotify_login'))
 
     sp = spotipy.Spotify(auth=session['spotify_token'])
-    top_artists = sp.current_user_top_artists(limit=15, offset=0, time_range=time_range)
+    top_artists = sp.current_user_top_artists(limit=25, offset=0, time_range=time_range)
 
     # Extract relevant information for each artist
     artists_info = []
@@ -120,6 +120,7 @@ def get_top_artists(time_range):
     return artists_info
 
 
+# Route for generating top artists for user
 @app.route('/top-artists')
 def top_artists():
     time_range = request.args.get('time_range', 'medium_term')  # Default to medium_term if not provided

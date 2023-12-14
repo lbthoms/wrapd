@@ -19,9 +19,9 @@
 
   <div class="time-frame-links">
     <p>Select time frame:</p>
-    <a href="{{ url_for('top_artists', time_range='long_term') }}" {% if time_range == 'long_term' %}class="active"{% endif %}>All Time</a>
-    <a href="{{ url_for('top_artists', time_range='medium_term') }}" {% if time_range == 'medium_term' %}class="active"{% endif %}>Last 6 Months</a>
-        <a href="{{ url_for('top_artists', time_range='short_term') }}" {% if time_range == 'short_term' %}class="active"{% endif %}>Last 4 Weeks</a>
+      <a href="{{ url_for('top_artists', time_range='long_term') }}" class="time-range-button {% if time_range == 'long_term' %}active{% endif %}">All Time</a>
+      <a href="{{ url_for('top_artists', time_range='medium_term') }}" class="time-range-button {% if time_range == 'medium_term' %}active{% endif %}">Last 6 Months</a>
+      <a href="{{ url_for('top_artists', time_range='short_term') }}" class="time-range-button {% if time_range == 'short_term' %}active{% endif %}">Last 4 Weeks</a>
   </div>
 
   <ul class="artist-list">

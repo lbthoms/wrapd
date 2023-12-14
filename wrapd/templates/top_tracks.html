@@ -17,11 +17,11 @@
   </h2>
 
   <!-- Display time frame options -->
-  <div>
-    <p>Select time frame:</p>
-    <a href="{{ url_for('top_tracks', time_range='long_term') }}">All Time</a>
-    <a href="{{ url_for('top_tracks', time_range='medium_term') }}">Last 6 Months</a>
-    <a href="{{ url_for('top_tracks', time_range='short_term') }}">Last 4 Weeks</a>
+  <div class="time-frame-links">
+      <p>Select time frame:</p>
+      <a href="{{ url_for('top_tracks', time_range='long_term') }}" class="time-range-button" {% if time_range == 'long_term' %}class="active"{% endif %}>All Time</a>
+      <a href="{{ url_for('top_tracks', time_range='medium_term') }}" class="time-range-button" {% if time_range == 'medium_term' %}class="active"{% endif %}>Last 6 Months</a>
+      <a href="{{ url_for('top_tracks', time_range='short_term') }}" class="time-range-button" {% if time_range == 'short_term' %}class="active"{% endif %}>Last 4 Weeks</a>
   </div>
 
   <!-- Top Tracks List -->
