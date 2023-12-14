@@ -4,7 +4,7 @@ import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'  # Change this to a secure secret key
+app.secret_key = config('SECRET_KEY')
 
 # Load Spotify client ID and client secret from environment variables
 spotify_client_id = config('SPOTIFY_CLIENT_ID')
@@ -16,8 +16,6 @@ sp_oauth = SpotifyOAuth(spotify_client_id, spotify_client_secret, redirect_uri='
 
 
 # Home route
-
-
 @app.route('/')
 def home():
     return render_template('index.html')
