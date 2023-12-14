@@ -11,8 +11,12 @@ spotify_client_id = config('SPOTIFY_CLIENT_ID')
 spotify_client_secret = config('SPOTIFY_CLIENT_SECRET')
 
 # Spotify OAuth configuration
-sp_oauth = SpotifyOAuth(spotify_client_id, spotify_client_secret, redirect_uri='http://127.0.0.1:8080/callback/q',
-                        scope='user-top-read playlist-modify-private')
+sp_oauth = SpotifyOAuth(
+    spotify_client_id,
+    spotify_client_secret,
+    redirect_uri='http://127.0.0.1:8080/callback/q',
+    scope='user-top-read playlist-modify-private'
+)
 
 
 # Home route
@@ -40,7 +44,7 @@ def spotify_authorized():
     session['spotify_user'] = {
         'display_name': user_info.get('display_name', 'Spotify User'),
         'profile_image': user_info.get('images', [{}])[0].get('url', None),
-        'id': user_info.get('id', None),  # Add the user ID to the session
+        'id': user_info.get('id', None),
     }
 
     # Store user ID in a separate session key
@@ -77,22 +81,15 @@ def get_top_tracks(time_range):
     top_tracks = sp.current_user_top_tracks(limit=25, offset=0, time_range=time_range)
 
     # Extract relevant information for each track
-    tracks_info = []
-    for track in top_tracks['items']:
-        track_info = {
-            'id': track['id'],  # Add the 'id' field to track information
-            'name': track['name'],
-            'artists': track['artists'],  # Adjust as needed based on the actual structure
-            'album': track['album'],
-        }
-        tracks_info.append(track_info)
+    tracks_info = [{'id': track['id'], 'name': track['name'], 'artists': track['artists'], 'album': track['album']} for
+                   track in top_tracks['items']]
 
     return tracks_info
 
 
 @app.route('/top-tracks')
 def top_tracks():
-    time_range = request.args.get('time_range', 'medium_term')  # Default to medium_term if not provided
+    time_range = request.args.get('time_range', 'medium_term')
     tracks_info = get_top_tracks(time_range)
     return render_template('top_tracks.html', top_tracks=tracks_info)
 
@@ -106,22 +103,17 @@ def get_top_artists(time_range):
     top_artists = sp.current_user_top_artists(limit=25, offset=0, time_range=time_range)
 
     # Extract relevant information for each artist
-    artists_info = []
-    for artist in top_artists['items']:
-        artist_info = {
-            'name': artist['name'],
-            'image': artist['images'][0]['url'] if artist['images'] else None,  # Check if images exist
-            'genres': artist['genres'],
-        }
-        artists_info.append(artist_info)
+    artists_info = [{'name': artist['name'],
+                     'image': artist['images'][0]['url'] if artist['images'] else None,
+                     'genres': artist['genres']} for artist in top_artists['items']]
 
     return artists_info
 
 
-# Route for generating top artists for user
+# Route for generating top artists for the user
 @app.route('/top-artists')
 def top_artists():
-    time_range = request.args.get('time_range', 'medium_term')  # Default to medium_term if not provided
+    time_range = request.args.get('time_range', 'medium_term')
     artists_info = get_top_artists(time_range)
     return render_template('top_artists.html', top_artists=artists_info, time_range=time_range)
 

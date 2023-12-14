@@ -11,6 +11,7 @@ body {
     background-color: #e1d7f5; /* Pastel purple background color */
 }
 
+/* Header and Footer */
 header, footer {
     text-align: center;
     border-radius: 10px;
@@ -22,6 +23,7 @@ header {
     padding: 1rem;
 }
 
+/* Navigation */
 nav {
     background-color: #3c1c61; /* Dark indigo navigation background color */
     padding: 0.5rem;
@@ -46,10 +48,11 @@ nav a {
     font-weight: bold;
 }
 
+/* Section Styles */
 section {
     overflow: auto;
     text-align: center;
-    max-width: 40%; /* Set the maximum width to 50% of the screen */
+    max-width: 40%;
     margin: 1rem auto;
     padding: 1rem;
     background-color: white;
@@ -57,17 +60,21 @@ section {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.spotify-login-btn {
+/* Button Styles */
+.spotify-login-btn, .time-range-button {
     display: inline-block;
     padding: 10px 20px;
     font-size: 16px;
     text-align: center;
     text-decoration: none;
-    border-radius: 50px; /* Use a large border-radius for rounded edges */
+    border-radius: 50px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.spotify-login-btn {
     background-color: #1db954; /* Spotify green */
     color: #ffffff; /* Black text color */
     border: 2px solid #000; /* Black border */
-    transition: background-color 0.3s, color 0.3s;
 }
 
 .spotify-login-btn:hover {
@@ -75,50 +82,44 @@ section {
     color: #fff; /* White text color on hover */
 }
 
-.profile-picture {
-    width: 85px;
-    height: 85px;
-    border-radius: 50%; /* Make the image circular */
+.time-range-button {
+    background-color: #af7ac5; /* Dark indigo on hover */
+    color: white; /* White text on hover */
+    margin-right: 5px; /* Adjust margin for spacing */
+}
+
+.time-range-button:hover {
+    background-color: #3c1c61; /* Dark indigo on hover */
+    color: white; /* White text on hover */
+}
+
+/* Image Styles */
+.profile-picture, .item img, .track-item img, .artist-item img {
+    width: 75px;
+    height: 75px;
+    border-radius: 8px;
     object-fit: cover;
     margin: 5px;
 }
 
-
-.item img,
-.track-item img,
-.artist-item img {
-    width: 75px; /* Adjust the size as needed */
-    height: 75px; /* Adjust the size as needed */
-    border-radius: 8px;
-    object-fit: cover;
-    margin: 5px; /* Add margin between each element */
-}
-
-.item .details,
-.track-details,
-.artist-details {
+/* Details Styles */
+.item .details, .track-details, .artist-details {
     text-align: center;
     margin-top: 8px;
 }
-/* Shared styles for titles, artist names, and names */
-.title,
-.artist,
-.name,
-.track-title,
-.track-artist,
-.artist-name {
+
+/* Text Styles */
+.title, .artist, .name, .track-title, .track-artist, .artist-name {
     font-size: 14px;
     margin: 4px 0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 100%; /* Allow the title to take up the full width of the item */
+    max-width: 100%;
 }
 
-/* Shared styles for list containers */
-.track-list,
-.top-artists,
-.artist-list {
+/* List Styles */
+.track-list, .top-artists, .artist-list {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -127,23 +128,12 @@ section {
     justify-content: space-around;
 }
 
-/* Shared styles for list items */
-.track-item,
-.artist-item {
+/* List Item Styles */
+.track-item, .artist-item {
     text-align: center;
     margin: 10px;
-    max-width: calc(20% - 20px); /* Adjust the width for 5 items per line */
+    max-width: calc(20% - 20px);
 }
-
-/* Shared styles for images within list items */
-.track-item img,
-.artist-item img {
-    width: 100%; /* Make the image fill the container */
-    height: auto;
-    border-radius: 8px;
-    object-fit: cover;
-}
-
 
 /* Modal Styles */
 .modal {
@@ -159,58 +149,38 @@ section {
 }
 
 .modal-content {
-    background-color: #fff; /* White background color */
-    margin: 25% auto; /* Center the modal */
+    background-color: #fff;
+    margin: 25% auto;
     padding: 10px;
-    border: 1px solid #4b0082; /* Dark purple border */
-    border-radius: 8px; /* Rounded edges */
-    width: 50%; /* Set the width to 50% of the screen */
-    color: #4b0082; /* Dark purple text color */
+    border: 1px solid #4b0082;
+    border-radius: 8px;
+    width: 50%;
+    color: #4b0082;
 }
 
 .close {
-    color: #4b0082; /* Dark purple close button color */
+    color: #4b0082;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
-    color: #000; /* Black close button color on hover/focus */
+.close:hover, .close:focus {
+    color: #000;
     text-decoration: none;
     cursor: pointer;
 }
 
-/* Scroll bar styles */
+/* Scrollbar Styles */
 ::-webkit-scrollbar {
-  width: 12px; /* Adjust the width as needed */
+    width: 12px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #3c1c61; /* Dark indigo color for the thumb */
-  border-radius: 6px; /* Rounded corners for the thumb */
+    background-color: #3c1c61; /* Dark indigo color for the thumb */
+    border-radius: 6px; /* Rounded corners for the thumb */
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #af7ac5; /* Pastel purple color for the track */
-}
-
-/* Button styles for time range links */
-.time-range-button {
-    display: inline-block;
-    padding: 8px 15px; /* Adjust padding for size */
-    font-size: 14px; /* Adjust font size */
-    background-color: #af7ac5; /* Dark indigo on hover */
-    color: white; /* White text on hover */
-    text-align: center;
-    text-decoration: none;
-    border-radius: 50px; /* Makes it more circular */
-    transition: background-color 0.3s, color 0.3s;
-    margin-right: 5px; /* Adjust margin for spacing */
-}
-
-.time-range-button:hover {
-    background-color: #3c1c61; /* Dark indigo on hover */
-    color: white; /* White text on hover */
+    background-color: #af7ac5; /* Pastel purple color for the track */
 }
